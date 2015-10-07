@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Download-Manager", "Download-Manager\Download-Manager.csproj", "{01D9DD10-7BBC-490A-8F1D-7490FB8BBD3B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DownloadManager", "Download-Manager\DownloadManager.csproj", "{01D9DD10-7BBC-490A-8F1D-7490FB8BBD3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

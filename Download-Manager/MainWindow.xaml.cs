@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Download_Manager
+namespace Download
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,7 +22,7 @@ namespace Download_Manager
     {
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }
