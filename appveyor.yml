@@ -3,21 +3,21 @@ before_build:
 - cmd: nuget restore
 - ps: >-
     cd C:\projects\download-manager
-    $VersionInfo = get-content VersionInfo.cs
+    $VerFromAssemblyInfo = get-content VersionInfo.cs
     $InstallScript = get-content Install\DownloadManager.iss
-    $VersionInfo[2][27]
+    $VerFromAssemblyInfo[2][27]
     $i = 27
-    $version = ""
+    $verString = ""
     do
     	{
-    	$version = $version + $VersionInfo[2][$i]
+    	$verString = $verString + $VerFromAssemblyInfo[26][$i]
     	$i = $i + 1
     	}
-    while($VersionInfo[2][$i] -ne ')')
+    while($VerFromAssemblyInfo[26][$i] -ne ')')
     $verString
-    $InstallScript[7]
-    $InstallScript[7] = "#define Version " + $verString
-    $InstallScript[7]
+    $InstallScript[1]
+    $InstallScript[1] = "#define Version " + $verString
+    $InstallScript[1]
     $InstallScript | set-content Install\DownloadManager.iss
 build:
   project: DownloadManager.sln
@@ -27,6 +27,9 @@ build:
   verbosity: minimal
 after_build:
 - cmd: packages\Tools.InnoSetup.5.5.6\tools\ISCC Install\DownloadManager.iss
+artifacts:
+- path: Download-Manager\Install\Installer
+  type: WebDeployPackage
 deploy:
 - provider: GitHub
   tag: $(APPVEYOR_REPO_TAG_NAME)
