@@ -1,0 +1,9 @@
+version: 0.0.0.{build}
+before_build:
+- cmd: nuget restore
+build:
+  project: DownloadManager.sln
+  publish_nuget: true
+  publish_nuget_symbols: true
+  include_nuget_references: true
+  verbosity: minimal
