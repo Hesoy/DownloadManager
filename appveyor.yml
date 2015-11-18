@@ -1,9 +1,42 @@
 version: 0.0.0.{build}
 before_build:
 - cmd: nuget restore
+- ps: >-
+    cd C:\projects\download-manager
+    $VersionInfo = get-content VersionInfo.cs
+    $InstallScript = get-content Install\DownloadManager.iss
+    $VersionInfo[2][27]
+    $i = 27
+    $version = ""
+    do
+    	{
+    	$version = $version + $VersionInfo[2][$i]
+    	$i = $i + 1
+    	}
+    while($VersionInfo[2][$i] -ne ')')
+    $verString
+    $InstallScript[7]
+    $InstallScript[7] = "#define Version " + $verString
+    $InstallScript[7]
+    $InstallScript | set-content Install\DownloadManager.iss
 build:
   project: DownloadManager.sln
   publish_nuget: true
   publish_nuget_symbols: true
   include_nuget_references: true
   verbosity: minimal
+after_build:
+- cmd: packages\Tools.InnoSetup.5.5.6\tools\ISCC Install\DownloadManager.iss
+deploy:
+- provider: GitHub
+  tag: $(APPVEYOR_REPO_TAG_NAME)
+  release: $(APPVEYOR_REPO_TAG_NAME)
+  description: Release from appveyor
+  auth_token:
+    secure: mR/S8Roh2h0ff/B+07PJzH4+GM1qTAk9uTOFDcWlYpIvdWLMp9LNztPdydK2hIYf
+  artifact: DownloadManager\Install\Installer.zip
+  draft: false
+  prerelease: false
+  on:
+    branch: master
+    appveyor_repo_tag: true
