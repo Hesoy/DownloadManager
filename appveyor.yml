@@ -8,12 +8,11 @@ before_build:
     $VerFromAssemblyInfo[2][27]
     $i = 27
     $verString = ""
-    do
-    	{
+    while($VerFromAssemblyInfo[26][$i] -ne ')')
+    {
     	$verString = $verString + $VerFromAssemblyInfo[26][$i]
     	$i = $i + 1
-    	}
-    while($VerFromAssemblyInfo[26][$i] -ne ')')
+    }
     $verString
     $InstallScript[1]
     $InstallScript[1] = "#define Version " + $verString
