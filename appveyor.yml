@@ -46,7 +46,7 @@ build:
 after_build:
 - cmd: packages\Tools.InnoSetup.5.5.6\tools\ISCC Install\DownloadManager.iss
 artifacts:
-- path: DownloadManager\Install\Installer
+- path: Download-Manager\Install\Installer
   type: WebDeployPackage
 deploy:
 - provider: GitHub
@@ -55,4 +55,4 @@ deploy:
   description: Release DownloadManager from AppVeyor
   auth_token:
     secure: lsXNYVpjq9/wvgfxSx7/Ef6Om3WZD84ZJEbnWeqVXwWZoh3LRqpnQBhQqYDGpuTg
-  artifact: DownloadManager\Install\Installer
+  artifact: Download-Manager\Install\Installer.zip
