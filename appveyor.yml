@@ -1,4 +1,4 @@
-version: 0.1.0.{build}
+version: 0.0.1.{build}
 before_build:
 - cmd: nuget restore
 - ps: >-
@@ -49,8 +49,9 @@ artifacts:
   type: WebDeployPackage
 deploy:
 - provider: GitHub
-  tag: $(APPVEYOR_REPO_TAG_NAME)
-  release: $(APPVEYOR_REPO_TAG_NAME)
+  tag: DownloadManager-v$(appveyor_build_version)
+  release: DownloadManager-v$(appveyor_build_version)
+  description: Release DownloadManager
   auth_token:
     secure: lsXNYVpjq9/wvgfxSx7/Ef6Om3WZD84ZJEbnWeqVXwWZoh3LRqpnQBhQqYDGpuTg
   artifact: Download-Manager\Install\Installer.zip
