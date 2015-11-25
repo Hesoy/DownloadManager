@@ -14,7 +14,7 @@ AppSupportURL={#URL}
 AppUpdatesURL={#URL}
 DefaultDirName={pf}\{#Name}
 DefaultGroupName={#Name}
-OutputDir=D:\DownloadManagerSetup
+OutputDir=..\Download-Manager\Install\Installer
 OutputBaseFileName=setup
 Compression=lzma
 SolidCompression=yes
@@ -28,8 +28,8 @@ Name: "ukrainian"; MessagesFile: "compiler:Languages\Ukrainian.isl";
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\Download-Manager\bin\Release\DownloadManager.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "..\Download-Manager\bin\Release\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\Download-Manager\bin\Debug\DownloadManager.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "..\Download-Manager\bin\Debug\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "dotNetFx40_Full_x86_x64.exe"; DestDir: "{tmp}"; Flags: deleteafterinstall; Check: not IsRequiredDotNetDetected
 
 [Code]
