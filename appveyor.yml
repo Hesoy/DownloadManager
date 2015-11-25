@@ -49,7 +49,6 @@ artifacts:
   type: WebDeployPackage
 deploy:
 - provider: GitHub
-  description: Release DownloadManager
   auth_token:
     secure: lsXNYVpjq9/wvgfxSx7/Ef6Om3WZD84ZJEbnWeqVXwWZoh3LRqpnQBhQqYDGpuTg
   artifact: Download-Manager\Install\Installer.zip
