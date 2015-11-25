@@ -13,15 +13,17 @@ before_build:
 
     $verString = ""
 
-    while($VerFromAssemblyInfo[26][$i] -ne ')')
+    do
 
     {
 
-    $verString = $verString + $VerFromAssemblyInfo[26][$i]
+    $verString = $verString + $VerFromAssemblyInfo[2][$i]
 
     $i = $i + 1
 
     }
+
+    while($VerFromAssemblyInfo[2][$i] -ne ')')
 
     $verString
 
@@ -39,7 +41,7 @@ build:
   include_nuget_references: true
   verbosity: minimal
 after_build:
-- cmd: 'cmd: packages\Tools.InnoSetup.5.5.6\tools\ISCC Install\DownloadManager.iss'
+- cmd: packages\Tools.InnoSetup.5.5.6\tools\ISCC Install\DownloadManager.iss
 artifacts:
 - path: Download-Manager\Install\Installer
   type: WebDeployPackage
