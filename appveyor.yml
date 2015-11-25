@@ -1,4 +1,4 @@
-version: 1.0.0.{build}
+version: 0.1.0.{build}
 before_build:
 - cmd: nuget restore
 - ps: >-
@@ -37,6 +37,7 @@ before_build:
     $InstallScript | set-content Install\DownloadManager.iss
 build:
   project: DownloadManager.sln
+  publish_wap: true
   publish_nuget: true
   publish_nuget_symbols: true
   include_nuget_references: true
@@ -48,6 +49,7 @@ artifacts:
   type: WebDeployPackage
 deploy:
 - provider: GitHub
+  tag: DownloadManager-v$(appveyor_build_version)
   auth_token:
     secure: lsXNYVpjq9/wvgfxSx7/Ef6Om3WZD84ZJEbnWeqVXwWZoh3LRqpnQBhQqYDGpuTg
   artifact: Download-Manager\Install\Installer.zip
