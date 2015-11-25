@@ -49,7 +49,7 @@ artifacts:
   type: WebDeployPackage
 deploy:
 - provider: GitHub
-  tag: DownloadManager-v$(appveyor_build_version)
+  tag: v$(appveyor_build_version)
   auth_token:
     secure: lsXNYVpjq9/wvgfxSx7/Ef6Om3WZD84ZJEbnWeqVXwWZoh3LRqpnQBhQqYDGpuTg
   artifact: Download-Manager\Install\Installer.zip
