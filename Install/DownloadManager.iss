@@ -1,5 +1,5 @@
 #define Name "Download Manager"
-#define Version "0.0.0.1"
+#define Version
 #define Publisher "Hesoy"
 #define URL "https://github.com/Hesoy/DownloadManager"
 #define ExeName "DownloadManager.exe"
