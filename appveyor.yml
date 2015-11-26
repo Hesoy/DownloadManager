@@ -50,8 +50,8 @@ artifacts:
   type: WebDeployPackage
 deploy:
 - provider: GitHub
-  tag: DownloadManager-v$(APPVEYOR_REPO_TAG_NAME)
-  release: DownloadManager-v$(APPVEYOR_REPO_TAG_NAME)
+  tag: $(APPVEYOR_REPO_TAG_NAME)
+  release: DownloadManager-$(APPVEYOR_REPO_TAG_NAME)
   description: Release DownloadManager from AppVeyor
   auth_token:
     secure: lsXNYVpjq9/wvgfxSx7/Ef6Om3WZD84ZJEbnWeqVXwWZoh3LRqpnQBhQqYDGpuTg
