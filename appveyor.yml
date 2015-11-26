@@ -1,5 +1,5 @@
 version: 0.0.1.{build}
-skip_tags: true
+skip_non_tags: true
 before_build:
 - cmd: nuget restore
 - ps: >-
