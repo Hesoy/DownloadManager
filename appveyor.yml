@@ -1,4 +1,4 @@
-version: 0.0.1.{build}
+version: 0.1.0.{build}
 skip_non_tags: true
 before_build:
 - cmd: nuget restore
@@ -50,9 +50,12 @@ artifacts:
   type: WebDeployPackage
 deploy:
 - provider: GitHub
-  tag: DownloadManager-v$(appveyor_build_version)
-  release: DownloadManager-v$(appveyor_build_version)
+  tag: DownloadManager-v$(APPVEYOR_REPO_TAG_NAME)
+  release: DownloadManager-v$(APPVEYOR_REPO_TAG_NAME)
   description: Release DownloadManager from AppVeyor
   auth_token:
     secure: lsXNYVpjq9/wvgfxSx7/Ef6Om3WZD84ZJEbnWeqVXwWZoh3LRqpnQBhQqYDGpuTg
   artifact: Download-Manager\Install\Installer.zip
+  on:
+    branch: master
+    appveyor_repo_tag: true
